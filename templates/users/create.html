@@ -1,0 +1,38 @@
+
+
+<h1>create</h1>
+
+{% extends 'blank_layout.html' %}
+
+{% block content %}
+
+<h1>Create User</h1>
+
+<form method="post", enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <p>
+        <label for="username">UserName: </label>
+        <input type="text" name="username">
+    </p>
+    <p>
+        <label for="password">Password: </label>
+        <input type="password" name="password">
+    </p>
+
+    <button type="submit">Signup</button>
+    <p>Already have an account? <a href="{% url 'login' %}">Log in here</a></p>
+</form>
+
+<p>
+    {% if user %}
+    <p>New User created with username {{user.username}}</p>
+    {% endif %}
+</p>
+<p style="color: red;">
+    {% if error_message %}
+    Error occured: {{error_message}}
+    {% endif %}
+</p>
+
+{% endblock %}

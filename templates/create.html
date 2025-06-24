@@ -1,0 +1,19 @@
+
+
+<h1>create</h1>
+
+{% extends 'blank_layout.html' %}
+
+{% block content %}
+
+<form method="post", enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- Title: <input type="text", name="title"/>
+    Year: <input type="text", name="year"/>
+    summary: <input type="text", name="summary"/> -->
+    {{ frm.as_p }}
+
+    <button type="submit">submit</button>
+</form>
+
+{% endblock %}
